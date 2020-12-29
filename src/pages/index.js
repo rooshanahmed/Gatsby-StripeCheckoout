@@ -22,11 +22,13 @@ export default function Home({ location }) {
 
   return (
     <div>
-      <h1>Hello World</h1>
+      <h1>Stripe Checkout</h1>
       <br />
       <button onClick={redirectToCheckout}>Checkout</button>
       <br />
       <button onClick={() => navigate("/ProductList")}>Product List</button>
+      <br />
+      <button onClick={() => {navigate("/SessionCheckout")}}>Session Checkout</button>
     </div>
   )
 }
