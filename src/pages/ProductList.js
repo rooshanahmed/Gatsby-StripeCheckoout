@@ -16,6 +16,8 @@ export default function Home() {
               product {
                 id
                 name
+                description
+                images
               }
             }
           }
@@ -29,6 +31,16 @@ export default function Home() {
     <div>
       <h1>Product List</h1>
       <br />
+      {
+        data.prices.edges.map((node) => (
+          <div key={node.node.id}>
+            <h2>Product Name: {node.node.product.name}</h2>
+            <h3>Product Description: {node.node.product.description}</h3>
+            <h4>Product Price: {node.node.unit_amount}</h4>
+            <div><img src={node.node.product.images[0]} width="300px" /></div>
+          </div>
+        ))
+      }
     </div>
   )
 }
