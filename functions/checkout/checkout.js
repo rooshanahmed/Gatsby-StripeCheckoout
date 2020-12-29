@@ -5,7 +5,17 @@ const handler = async event => {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: [
-        { price: "price_1I3QZGEnWioBjOItfwmhHtHF", quantity: 1 },
+        {
+          price_data: {
+            currency: 'usd',
+            product_data: {
+              name: 'Adidas T-shirt',
+              images: ["https://photos6.spartoo.eu/photos/661/6610458/6610458_500_A.jpg"]
+            },
+            unit_amount: 2000,
+          },
+          quantity: 1,
+        },
       ],
       mode: "payment",
       success_url: "http://localhost:8888/payment-success",
