@@ -1,5 +1,6 @@
 import React from "react"
 import { loadStripe } from "@stripe/stripe-js"
+import { navigate } from "gatsby"
 
 const stripePromise = loadStripe(
   "pk_test_51I3GslEnWioBjOItEgqTwSFPgdBn1Nsf1bA7wx3nOSH5ww1GDvNl3hipOrMc9ZAUbDVhFAd0HJ7WBk4JF59rJecn00lvgFgrUC"
@@ -24,6 +25,8 @@ export default function Home({ location }) {
       <h1>Hello World</h1>
       <br />
       <button onClick={redirectToCheckout}>Checkout</button>
+      <br />
+      <button onClick={() => navigate("/ProductList")}>Product List</button>
     </div>
   )
 }
